@@ -3,7 +3,11 @@ import { Rectangle } from "../../Solid/2.Ocp/practice1/Rectangle";
 import { Shape } from "../../Solid/2.Ocp/practice1/Shape";
 import { Square } from "../../Solid/2.Ocp/practice1/Square";
 import { Triangle } from "../../Solid/2.Ocp/practice1/Triangle";
+import { FreelancerEmployee } from "../../Solid/2.Ocp/pratice2/FreelancerEmployee";
 
+import { FullTimeEmployee } from "../../Solid/2.Ocp/pratice2/FullTimeEmployee";
+import { InternEmployee } from "../../Solid/2.Ocp/pratice2/InternEmployee";
+import { PartTimeEmployee } from "../../Solid/2.Ocp/pratice2/PartTimeEmployee";
 describe("Shape", () => {
   let circle: Circle;
   let rectangle: Rectangle;
@@ -137,5 +141,89 @@ describe("Triangle", () => {
     const newLength = 3;
     triangle.setLength(newLength);
     expect(triangle.getLength()).toBe(newLength);
+  });
+});
+
+// ================== PRACTICE 2 ===================
+
+describe("Full-Time Employee", () => {
+  let fullTimeEmployee: FullTimeEmployee;
+  const name = "Sean";
+
+  beforeEach(() => {
+    fullTimeEmployee = new FullTimeEmployee(name);
+  });
+
+  test("should calculate and return salary", () => {
+    expect(fullTimeEmployee.calculateSalary()).toBe(5000);
+  });
+  test("Should return name of employee", () => {
+    expect(fullTimeEmployee.getName()).toBe(name);
+  });
+  test("Should set new name of employee", () => {
+    const newName = "Trump";
+    fullTimeEmployee.setName(newName);
+    expect(fullTimeEmployee.getName()).toBe(newName);
+  });
+});
+
+describe("Part-Time Employee", () => {
+  let partTimeEmployee: PartTimeEmployee;
+
+  beforeEach(() => {
+    partTimeEmployee = new PartTimeEmployee("Sean");
+  });
+
+  test("Should calculate and return salary", () => {
+    expect(partTimeEmployee.calculateSalary()).toBe(3000);
+  });
+});
+
+describe("Intern Employee", () => {
+  let internEmployee: InternEmployee;
+  beforeEach(() => {
+    internEmployee = new InternEmployee("Sean");
+  });
+
+  test("Should calculate and return salary", () => {
+    expect(internEmployee.calculateSalary()).toBe(1000);
+  });
+});
+
+describe("Freelancer Employee", () => {
+  let freelancer: FreelancerEmployee;
+  const workingTime = 8;
+  const hourlyRate = 40;
+
+  beforeEach(() => {
+    freelancer = new FreelancerEmployee("Sean", workingTime, hourlyRate);
+  });
+
+  test("Should calculate and return salary", () => {
+    expect(freelancer.calculateSalary()).toBe(workingTime * hourlyRate);
+  });
+  test("Should return working time of employee", () => {
+    expect(freelancer.getWorkingTime()).toBe(workingTime);
+  });
+
+  test("Should return hourly rate of employee", () => {
+    expect(freelancer.getHourlyRate()).toBe(hourlyRate);
+  });
+
+  test("Should set working time", () => {
+    const newWorkingTime = 9;
+    freelancer.setWorkingTime(newWorkingTime);
+    expect(freelancer.getWorkingTime()).toBe(newWorkingTime);
+  });
+
+  test("Should set hourly rate", () => {
+    const hourlyRate = 50;
+    freelancer.setHourlyrate(hourlyRate);
+    expect(freelancer.getHourlyRate()).toBe(hourlyRate);
+  });
+
+  test("Should return a freelancer with default hourlyRate", () => {
+    const defaultFreelancer = new FreelancerEmployee("Sean", 8);
+    expect(freelancer.getHourlyRate()).toBe(40);
   });
 });
