@@ -36,11 +36,15 @@ describe("Library", () => {
   test("should return the total number of books in the library", () => {
     library.addBook(book1);
     library.addBook(book2);
-    expect(library.getListBooks().length).toBe(2);
+    expect(library.getTotalNumberOfBooks()).toBe(2);
   });
 
   test("should return an empty list when no books are added", () => {
     expect(library.getListBooks().length).toBe(0);
+  });
+
+  test("should return an SeachBook object of library", () => {
+    expect(library.getSearchBook()).toBeInstanceOf(SearchBook);
   });
 });
 

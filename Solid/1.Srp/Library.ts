@@ -20,6 +20,10 @@ export class Library {
     return this.books;
   }
 
+  getTotalNumberOfBooks(): number {
+    return this.books.length;
+  }
+
   public getSearchBook(): SearchBook {
     return this.searchBook;
   }
