@@ -1,0 +1,26 @@
+import { Book } from "./Book";
+
+export class SearchBook {
+  private books: Book[];
+  constructor(books: Book[]) {
+    this.books = books;
+  }
+
+  getBookByTitle(title: string): Book | undefined {
+    return this.books.find((book) => book.title === title);
+  }
+
+  getTotalNumberOfBooks(): number {
+    return this.books.length;
+  }
+
+  getBooksByAuthor(author: string): Book[] {
+    return this.books.filter((book) => book.author === author);
+  }
+
+  getBooksByPublicationYear(publicationYear: number): Book[] {
+    return this.books.filter(
+      (book) => book.publicationYear === publicationYear
+    );
+  }
+}
