@@ -1,34 +1,28 @@
 /*=========== START PRACTICE 2 ===============*/
-enum EmployeeType {
-  FullTime,
-  PartTime,
-  Intern,
-}
 
-class Employee {
-  constructor(public name: string, public type: EmployeeType) {}
+import { FreelancerEmployee } from "./FreelancerEmployee";
+import { FullTimeEmployee } from "./FullTimeEmployee";
+import { InternEmployee } from "./InternEmployee";
+import { PartTimeEmployee } from "./PartTimeEmployee";
 
-  calculateSalary(): number {
-    switch (this.type) {
-      case EmployeeType.FullTime:
-        return 5000;
-      case EmployeeType.PartTime:
-        return 3000;
-      case EmployeeType.Intern:
-        return 1000;
-      default:
-        throw new Error("Unknown employee type");
-    }
-  }
-}
-
-const fullTimeEmployee = new Employee("Alice", EmployeeType.FullTime);
+const fullTimeEmployee = new FullTimeEmployee("Alice");
 console.log(
-  `${fullTimeEmployee.name}'s salary is ${fullTimeEmployee.calculateSalary()}`
+  `${fullTimeEmployee.getName()}'s salary is ${fullTimeEmployee.calculateSalary()}`
 );
 
-const internEmployee = new Employee("Bob", EmployeeType.Intern);
+const partTimeEmployee = new PartTimeEmployee("Joy");
 console.log(
-  `${internEmployee.name}'s salary is ${internEmployee.calculateSalary()}`
+  `${partTimeEmployee.getName()}'s salary is ${partTimeEmployee.calculateSalary()}`
 );
+
+const internEmployee = new InternEmployee("Bob");
+console.log(
+  `${internEmployee.getName()}'s salary is ${internEmployee.calculateSalary()}`
+);
+
+const freelancer = new FreelancerEmployee("Trump", 8);
+console.log(
+  `${freelancer.getName()}'s salary is ${freelancer.calculateSalary()}`
+);
+
 /*=========== END PRACTICE 2 ===============*/
