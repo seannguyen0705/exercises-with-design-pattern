@@ -1,5 +1,5 @@
 export class Shape {
-  shapes: Shape[];
+  private shapes: Shape[];
   constructor(shapes: Shape[]) {
     this.shapes = shapes;
   }
