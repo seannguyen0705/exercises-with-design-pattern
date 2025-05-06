@@ -23,4 +23,8 @@ export class Library {
   public getSearchBook(): SearchBook {
     return this.searchBook;
   }
+
+  public getTotalNumberOfBooks(): number {
+    return this.books.length;
+  }
 }
