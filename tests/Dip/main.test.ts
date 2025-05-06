@@ -14,7 +14,7 @@ describe("Notification", () => {
     notificationEmail = new Notification(emailService);
     notificationSms = new Notification(smsService);
 
-    jest.spyOn(console, "log");
+    jest.spyOn(console, "log").mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -41,7 +41,7 @@ describe("EmailService", () => {
 
   beforeEach(() => {
     emailService = new EmailService();
-    jest.spyOn(console, "log");
+    jest.spyOn(console, "log").mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -61,7 +61,7 @@ describe("SMSService", () => {
 
   beforeEach(() => {
     smsService = new SMSService();
-    jest.spyOn(console, "log");
+    jest.spyOn(console, "log").mockImplementation(() => {});
   });
 
   afterEach(() => {
